@@ -1,4 +1,4 @@
-FROM ghcr.io/n8io/n8n:latest
+FROM ghcr.io/n8n-io/n8n:latest
 
 USER root
 
