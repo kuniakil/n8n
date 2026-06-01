@@ -2,10 +2,12 @@ FROM ghcr.io/n8n-io/n8n:latest
 
 USER root
 
-# 安裝 kubectl
-RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
+# Install curl and kubectl
+RUN apt-get update && apt-get install -y curl \
+    && curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
     && chmod +x kubectl \
-    && mv kubectl /usr/local/bin/
+    && mv kubectl /usr/local/bin/ \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# 換回 n8n 預設使用者，保持安全
+# Switch back to n8n default user for security
 USER node
