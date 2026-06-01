@@ -47,7 +47,7 @@ jobs:
             type=ref,event=branch
             type=ref,event=pr
             type=sha,prefix=
-            type=raw,value=${{ inputs.docker_tags }},enable=
+            type=raw,value=${{ inputs.docker_tags }}
 
       - name: Build and push multi-platform image
         uses: docker/build-push-action@v6
