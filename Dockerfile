@@ -9,4 +9,10 @@ RUN wget -q "https://dl.k8s.io/release/stable.txt" -O /tmp/k8s-version.txt \
     && chmod +x /usr/local/bin/kubectl \
     && rm /tmp/k8s-version.txt
 
+# Install @xenova/transformers for local embedding (replaces external embedding API, no quota)
+RUN npm install -g @xenova/transformers && npm cache clean --force
+
 USER node
+
+# HuggingFace model cache location (persistent via hostPath, no re-download on pod restart)
+ENV HF_HOME=/home/node/.n8n/.cache/huggingface
