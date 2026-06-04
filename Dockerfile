@@ -1,5 +1,11 @@
 FROM node:20-bullseye-slim
 
+# Install build tools (required for native modules like isolated-vm in n8n)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        python3 \
+    && rm -rf /var/lib/apt/lists/*
+
 # Install n8n 2.22.6 (via npm)
 RUN npm install -g n8n@2.22.6 --unsafe-perm && npm cache clean --force
 
