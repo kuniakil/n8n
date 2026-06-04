@@ -33,6 +33,7 @@ ENV NODE_FUNCTION_ALLOW_EXTERNAL=*
 ENV N8N_BLOCK_EXTERNAL_EXECUTION=false
 ENV HF_HOME=/home/node/.n8n/.cache/huggingface
 ENV N8N_USER_FOLDER=/home/node/.n8n
+ENV NODE_PATH=/usr/local/lib/node_modules
 
 # Use n8n's own entrypoint
 ENTRYPOINT ["n8n"]
