@@ -1,4 +1,4 @@
-FROM node:20-bullseye-slim
+FROM node:22.16-bullseye-slim
 
 # Install build tools (required for native modules like isolated-vm in n8n)
 RUN apt-get update && apt-get install -y --no-install-recommends \
