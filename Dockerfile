@@ -1,4 +1,4 @@
-FROM ghcr.io/n8n-io/n8n:latest-debian
+FROM ghcr.io/n8n-io/n8n:2.22.6-debian
 
 USER root
 
