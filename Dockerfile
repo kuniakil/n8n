@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y wget ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install local embedding package
-RUN npm install -g @xenova/transformers --unsafe-perm && npm cache clean --force
+RUN npm install -g @xenova/transformers turndown --unsafe-perm && npm cache clean --force
 
 # Create n8n expected directory structure
 RUN mkdir -p /home/node/.n8n && chown -R node:node /home/node/.n8n
